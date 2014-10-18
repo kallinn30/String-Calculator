@@ -7,7 +7,7 @@ public static int Add(String text) {
 	if (text.equals("")){
 		return 0;
 	}
-	else if (!text.contains(",")){
+	else if (!(text.contains(",")||text.contains("\n"))){
 		return tonumber(text);
 	}
 	else{
