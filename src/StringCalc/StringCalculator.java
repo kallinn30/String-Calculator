@@ -11,7 +11,7 @@ public static int Add(String text) {
 		return tonumber(text);
 	}
 	else{
-		String[] numbers = text.split(",");
+		String[] numbers = text.split(",|\n");
 		int sum = 0;
     	for(String d : numbers)
     	{
