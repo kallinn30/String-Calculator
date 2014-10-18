@@ -10,8 +10,12 @@ import org.junit.Test;
 
 public class StringCalculatorTest {
 @Test
-	public void teststyrmir(){
-		Assert.assertEquals("Hello Styrmir", StringCalculator.styrmir());
-		
+	public void test_empty_string(){
+		Assert.assertEquals(0, StringCalculator.Add(""));
+	}
+@Test
+	public void test_one_number(){
+		Assert.assertEquals(1, StringCalculator.Add("1"));
 	}
 }
+
