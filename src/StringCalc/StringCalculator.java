@@ -7,7 +7,12 @@ public static int Add(String text) {
 	if (text.equals("")){
 		return 0;
 	}
-	else if (!(text.contains(",")||text.contains("\n"))){
+	/*char delim = ',';
+	if (text.charAt(0) == text.charAt(1) & text.charAt(1) == '/'){
+		delim = text.charAt(2);
+	}*/
+		
+	if (!(text.contains(",")||text.contains("\n"))){
 		return tonumber(text);
 	}
 	else{
