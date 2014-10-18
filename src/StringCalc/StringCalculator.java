@@ -5,6 +5,7 @@ import edu.princeton.cs.introcs.*;
 
 public class StringCalculator {
 public static int Add(String text) {
+	boolean mult_del = false;
 	if (text.equals("")){
 		return 0;
 	}
@@ -14,10 +15,22 @@ public static int Add(String text) {
 	}
 	String delim = ",";
 	if (text.charAt(0) == text.charAt(1) & text.charAt(1) == '/'){
-		delim = Character.toString(text.charAt(2));
+		if (text.charAt(2) == '['){
+			delim = "";
+			mult_del = true;
+			for (int i = 3; text.charAt(i) != ']'; i++){
+				delim += Character.toString(text.charAt(i));
+			}
+		}
+		else{
+		delim = Character.toString(text.charAt(2));}
+		}
+	if(mult_del){
+		text = text.replaceAll(Pattern.quote("//[") + Pattern.quote(delim) + Pattern.quote("]\n"), "");
 	}
-	text = text.replaceAll("//" + Pattern.quote(delim) + "\n", "");
-	
+	else{
+		text = text.replaceAll("//" + Pattern.quote(delim) + "\n", "");
+	}
 	String[] numbers = text.split(",|\n|" + Pattern.quote(delim));
 	int sum = 0;
 	for(String d : numbers)
