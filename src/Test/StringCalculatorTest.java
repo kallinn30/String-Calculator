@@ -17,5 +17,8 @@ public class StringCalculatorTest {
 	public void test_one_number(){
 		Assert.assertEquals(1, StringCalculator.Add("1"));
 	}
+@Test
+public void test_two_number(){
+	Assert.assertEquals(3, StringCalculator.Add("1,2"));
+	}
 }
-
