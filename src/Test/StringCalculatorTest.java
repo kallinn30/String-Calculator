@@ -18,28 +18,32 @@ public class StringCalculatorTest {
 		Assert.assertEquals(1, StringCalculator.Add("1"));
 	}
 @Test
-public void test_two_numbers(){
-	Assert.assertEquals(3, StringCalculator.Add("1,2"));
+	public void test_two_numbers(){
+		Assert.assertEquals(3, StringCalculator.Add("1,2"));
 	}
 @Test 
-public void test_many_numbers(){
-	Assert.assertEquals(55, StringCalculator.Add("1,2,3,4,5,6,7,8,9,10"));
+	public void test_many_numbers(){
+		Assert.assertEquals(55, StringCalculator.Add("1,2,3,4,5,6,7,8,9,10"));
 	}
 @Test 
-public void test_many_numbers_with_newline(){
-	Assert.assertEquals(55, StringCalculator.Add("1,2,3\n4,5,6\n7,8,9,10"));
+	public void test_many_numbers_with_newline(){
+		Assert.assertEquals(55, StringCalculator.Add("1,2,3\n4,5,6\n7,8,9,10"));
 	}
 @Test
-public void test_many_numbers_only_with_newline(){
-	Assert.assertEquals(55, StringCalculator.Add("1\n2\n3\n4\n5\n6\n7\n8\n9\n10"));
+	public void test_many_numbers_only_with_newline(){
+		Assert.assertEquals(55, StringCalculator.Add("1\n2\n3\n4\n5\n6\n7\n8\n9\n10"));
 	}
 @Test
-public void delim_test(){
-	Assert.assertEquals(55, StringCalculator.Add("//;\n1\n2\n3;4\n5\n6\n7\n8,9\n10"));
+	public void delim_test(){
+		Assert.assertEquals(55, StringCalculator.Add("//;\n1\n2\n3;4\n5\n6\n7\n8,9\n10"));
 	}
 @Test
-public void ignore_1001_or_more_test(){
-	Assert.assertEquals(1019, StringCalculator.Add("1001,1000,1002,9,10"));
+	public void ignore_1001_or_more_test(){
+		Assert.assertEquals(1019, StringCalculator.Add("1001,1000,1002,9,10"));
+}
+@Test
+	public void star_as_delim_test(){
+		Assert.assertEquals(55, StringCalculator.Add("//*\n1\n2\n3,4*5\n6\n7\n8,9\n10"));
+	}
 	
-	}
 }

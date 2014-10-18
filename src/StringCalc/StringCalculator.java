@@ -1,5 +1,6 @@
 package StringCalc;
 
+import java.util.regex.Pattern;
 import edu.princeton.cs.introcs.*;
 
 public class StringCalculator {
@@ -11,13 +12,13 @@ public static int Add(String text) {
 	if (!(text.contains(",")||text.contains("\n"))){
 		return tonumber(text);
 	}
-	char delim = ',';
+	String delim = ",";
 	if (text.charAt(0) == text.charAt(1) & text.charAt(1) == '/'){
-		delim = text.charAt(2);
+		delim = Character.toString(text.charAt(2));
 	}
-	text = text.replaceAll("//" + delim + "\n", "");
+	text = text.replaceAll("//" + Pattern.quote(delim) + "\n", "");
 	
-	String[] numbers = text.split(",|\n|" + Character.toString(delim));
+	String[] numbers = text.split(",|\n|" + Pattern.quote(delim));
 	int sum = 0;
 	for(String d : numbers)
     {if (tonumber(d) < 1001){
