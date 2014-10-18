@@ -37,4 +37,9 @@ public void test_many_numbers_only_with_newline(){
 public void delim_test(){
 	Assert.assertEquals(55, StringCalculator.Add("//;\n1\n2\n3;4\n5\n6\n7\n8,9\n10"));
 	}
+@Test
+public void ignore_1001_or_more_test(){
+	Assert.assertEquals(1019, StringCalculator.Add("1001,1000,1002,9,10"));
+	
+	}
 }

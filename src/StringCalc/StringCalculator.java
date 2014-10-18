@@ -20,8 +20,8 @@ public static int Add(String text) {
 	String[] numbers = text.split(",|\n|" + Character.toString(delim));
 	int sum = 0;
 	for(String d : numbers)
-    {
-   		sum += tonumber(d);
+    {if (tonumber(d) < 1001){
+   		sum += tonumber(d);}
    	}
     return sum;
 }
