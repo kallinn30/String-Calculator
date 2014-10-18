@@ -24,5 +24,9 @@ public void test_two_numbers(){
 @Test 
 public void test_many_numbers(){
 	Assert.assertEquals(55, StringCalculator.Add("1,2,3,4,5,6,7,8,9,10"));
-}
+	}
+@Test 
+public void test_many_numbers_with_newline(){
+	Assert.assertEquals(55, StringCalculator.Add("1,2,3\n4,5,6\n7,8,9,10"));
+	}
 }
