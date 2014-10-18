@@ -1,5 +1,5 @@
 package Test;
-
+import StringCalc.StringCalculator;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,8 @@ import org.junit.Test;
 
 public class StringCalculatorTest {
 @Test
-	public void test(){
-		Assert.assertEquals(0, 3);
+	public void teststyrmir(){
+		Assert.assertEquals("Hello Styrmir", StringCalculator.styrmir());
+		
 	}
 }
