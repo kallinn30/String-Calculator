@@ -12,11 +12,18 @@ public static int Add(String text) {
 	}
 	else{
 		String[] numbers = text.split(",");
-	return tonumber(numbers[0]) + tonumber(numbers[1]);} 
+		int sum = 0;
+    	for(String d : numbers)
+    	{
+    		sum += tonumber(d);
+    	}
+        return sum;
+	} 
 		
 }
 
 private static int tonumber(String text){
 	return Integer.parseInt(text);
 	}
+
 }
