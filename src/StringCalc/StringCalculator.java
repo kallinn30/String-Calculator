@@ -1,5 +1,4 @@
 package StringCalc;
-import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import edu.princeton.cs.introcs.*;
@@ -64,6 +63,9 @@ public static int Add(String text) {
 		if (tonumber(d) < 1001){
    		sum += tonumber(d);}
    	}
+	if (!negnum.equals("")){
+		throw new IllegalArgumentException("Negatives not allowed " + negnum.substring(0, negnum.length()-1));
+	}
     return sum;
     
 }
