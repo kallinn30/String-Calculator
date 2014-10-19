@@ -57,9 +57,16 @@ public class StringCalculatorTest {
 		Assert.assertEquals(55, StringCalculator.Add("//[**][%%][++][-][/]\n1%%2\n3,4**5\n6\n7\n8,9++10"));}
 @Test
 	public void neg_number_test(){
-		Assert.assertEquals(55, StringCalculator.Add("//[**][%%][++][/]\n1%%2\n3,4**-5\n6\n7\n8,9++10"));
+	    try
+	    {
+	    	StringCalculator.Add("//[**][%%][++][/]\n1%%2\n3,4**-5\n6\n7\n8,-9++-10");
+	    	Assert.fail();
+	    }catch(Exception e) {
+	    	Assert.assertTrue(e.getMessage().equals("Negatives not allowed -5 -9 -10"));
+	    }
 	}
 }
+
 
 
 

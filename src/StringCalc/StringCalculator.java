@@ -59,12 +59,11 @@ public static int Add(String text) {
 	for(String d : numbers)
     {
 		if (tonumber(d) < 0 ){
-			negnum += d;
+			negnum += d + " ";
 		}
 		if (tonumber(d) < 1001){
    		sum += tonumber(d);}
    	}
-	StdOut.println(negnum);
     return sum;
     
 }
