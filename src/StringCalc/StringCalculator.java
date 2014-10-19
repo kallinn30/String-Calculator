@@ -1,6 +1,7 @@
 package StringCalc;
-
+import java.util.ArrayList;
 import java.util.regex.Pattern;
+
 import edu.princeton.cs.introcs.*;
 
 public class StringCalculator {
@@ -52,18 +53,20 @@ public static int Add(String text) {
 		else{
 			numbers = text.split(",|\n|" + Pattern.quote(delim));
 		}
-			
+	
+	String negnum = "";
+	int sum = 0;
 	for(String d : numbers)
     {
-		StdOut.println(d);
-   	}
-	int sum = 0;
-	
-	for(String d : numbers)
-    {if (tonumber(d) < 1001){
+		if (tonumber(d) < 0 ){
+			negnum += d;
+		}
+		if (tonumber(d) < 1001){
    		sum += tonumber(d);}
    	}
+	StdOut.println(negnum);
     return sum;
+    
 }
 
 private static int tonumber(String text){
