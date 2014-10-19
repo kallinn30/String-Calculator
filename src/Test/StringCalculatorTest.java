@@ -47,6 +47,9 @@ public class StringCalculatorTest {
 	}
 @Test
 	public void multiple_char_delim_test(){
-	Assert.assertEquals(55, StringCalculator.Add("//[***]\n1\n2\n3,4***5\n6\n7\n8,9\n10"));	
+	Assert.assertEquals(6, StringCalculator.Add("//[***]\n1***2***3"));	
 }
+@Test 
+	public void multile_delim_test(){
+	Assert.assertEquals(55, StringCalculator.Add("//[*][%][+][-][/]\n1%2\n3,4*5\n6\n7\n8,9+10"));}
 }

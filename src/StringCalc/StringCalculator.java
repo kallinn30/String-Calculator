@@ -18,21 +18,47 @@ public static int Add(String text) {
 		if (text.charAt(2) == '['){
 			delim = "";
 			mult_del = true;
-			for (int i = 3; text.charAt(i) != ']'; i++){
+			StdOut.println(delim);
+			for (int i = 3; text.charAt(i) != '\n'; i++){
+				
 				delim += Character.toString(text.charAt(i));
+				StdOut.println(delim);
 			}
+			delim = delim.substring(0,delim.length()-1);
+			String[] delims = delim.split(Pattern.quote("]["));
+			delim = "";
+			for(String d : delims)
+		    {
+				delim += Pattern.quote(d);
+				
+				delim += "|";
+				StdOut.println(delim);
+		   	}
+			delim = delim.substring(0,delim.length()-1);
+			StdOut.println(delim);
 		}
 		else{
 		delim = Character.toString(text.charAt(2));}
 		}
-	if(mult_del){
-		text = text.replaceAll(Pattern.quote("//[") + Pattern.quote(delim) + Pattern.quote("]\n"), "");
-	}
-	else{
-		text = text.replaceAll("//" + Pattern.quote(delim) + "\n", "");
-	}
-	String[] numbers = text.split(",|\n|" + Pattern.quote(delim));
+	
+		if(mult_del){
+		text = text.substring(text.indexOf('\n') + 1,text.length());}
+		else{
+			text = text.replaceAll("//" + Pattern.quote(delim) + "\n", "");
+		}
+		String[] numbers = null;
+		if (mult_del){
+			numbers = text.split(",|\n|" + delim);}
+		else{
+			numbers = text.split(",|\n|" + Pattern.quote(delim));
+		}
+			
+	for(String d : numbers)
+    {
+		StdOut.println(d);
+   	}
 	int sum = 0;
+	
 	for(String d : numbers)
     {if (tonumber(d) < 1001){
    		sum += tonumber(d);}
